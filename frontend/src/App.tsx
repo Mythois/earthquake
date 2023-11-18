@@ -3,6 +3,7 @@ import MapViz from './components/MapViz'
 import { EarthQuake } from './components/Earthquake'
 
 import './App.css'
+import { EarthquakeList } from './components/EarthQuakeList'
 
 function App() {
   const Edata = {
@@ -20,6 +21,7 @@ function App() {
         <div className='w-1/5 h-full border-solid border-2'>
           <EarthQuake place={Edata.place} time={Edata.time} magType={Edata.magType} mag={Edata.mag}/>
         </div>
+        
         
       </Fragment>
   )

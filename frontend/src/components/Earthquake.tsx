@@ -1,7 +1,6 @@
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -22,7 +21,9 @@ type EarthquakeDataProp = {
 /**
  * This component represents a single earthquake.
  * It displays some of the data associated with the earthquake such as the magnitude,
- * title and time and place in the form of a card.
+ * time and place in the form of a card.
+ * The component has a button that allows the user to a details page where he can get an overview over more data
+ * and add comments and save the earthquake (not yet implemented)
  */
 
 export function EarthQuake(data : Readonly<EarthquakeDataProp>){
