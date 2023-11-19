@@ -1,6 +1,7 @@
 import { GET_EARTHQUAKES } from "@/utils/queries/getEarthquakes"
 import { useQuery } from "@apollo/client"
 import { EarthquakeList } from "@/components/EarthquakeList"
+import EarthquakeMap from "@/components/EarthquakeMap"
 
 
 export function Frontpage(){
@@ -14,4 +15,11 @@ export function Frontpage(){
     if (error){
         return `Error! ${[error.message]}`
     }
+    return(
+        <div className="flex flex-row">
+        <EarthquakeList earthquakes={data.getEarthquakes.features}/>
+        <EarthquakeMap earthquakes={data.getEarthquakes.features}/>
+       </div>
+    )
+
 }
