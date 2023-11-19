@@ -6,7 +6,6 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { Button } from "./ui/button"
-
 import format from "date-fns/format"
   
 // Structure of the earthquake data used by the Earthquake component
@@ -28,28 +27,36 @@ export type EarthquakeDataProp = {
 type EarthquakeProps = {
     data: EarthquakeDataProp    
     handleButtonClick: (earthquakeData: EarthquakeDataProp) => void   // Callback function that passes earthquake data to modal when btn is pressed
+    handleHover: (code:string) => void
 }
 
+
 /**
+ * ABOUT THIS COMPONENT
  * This component represents a single earthquake.
- * It displays some of the data associated with the earthquake such as the magnitude,
- * time and place in the form of a card.
- * The component has a button that allows the user to a details page where he can get an overview over more data
- * and add comments and save the earthquake (not yet implemented)
+ * It displays some of the data associated with the earthquake (title, time and magnitude)
+ * in the form of a card. 
+ * The card has a Details button which, when pressed, will activate a modal showing more information
+ * about the earthquake.
+ * 
+ * @param data: The data associated with the earthquake
+ * @callback handleButtonClick: A function used to check whether the Details button has been pressed. 
+ *                              Modifies the showModal state in Frontpage.tsx
+ * @callback handleHover:  A function used to check whether the earthquake card is hoverd.
+ *                         Modifies the hoverCode state in Frontpage.tsx
+ * @returns A card component that represents an earthquake
  */
 
-export function Earthquake({data, handleButtonClick}:EarthquakeProps){
+export function Earthquake({data, handleButtonClick, handleHover}:Readonly<EarthquakeProps>){
     const time = data.properties.time
 
     // Change time to human readable form
     const date = new Date(time)
     const dateTime = format(date, 'yyyy-MM-dd HH:mm:ss zzz')
-
-   
  
 
     return(
-        <Card className="w-full space-y-0.5 rounded-none">
+        <Card className="w-full space-y-0.5 rounded-none" onMouseEnter={() => handleHover(data.properties.code)} onMouseLeave={() => handleHover('')}>
             <CardHeader className="-mb-6">
                 <CardTitle className="text-base text-center">{data.properties.place}</CardTitle>
             </CardHeader>

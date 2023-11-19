@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 
-// The gql string used to by the apollo client to ask to query data
+// The gql string used to by the apollo client to query data
 export const GET_EARTHQUAKES = gql `
     query GetEarthquakes {
     getEarthquakes {
