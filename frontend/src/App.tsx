@@ -1,17 +1,11 @@
-import { Fragment} from 'react'
-import MapViz from './components/MapViz'
-
 import './App.css'
+
+import { Frontpage } from './pages/Frontpage'
 
 function App() {
 
-
-
   return (
-      <Fragment>
-        <h1>Earthquake</h1>
-        <MapViz latitude={51.505} longitude={-0.09}/>
-      </Fragment>
+      <Frontpage/>
   )
 }
 
