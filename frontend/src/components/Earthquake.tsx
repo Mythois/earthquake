@@ -9,7 +9,7 @@ import { Button } from "./ui/button"
 
 import format from "date-fns/format"
   
-
+// Structure of the earthquake data used by the Earthquake component
 export type EarthquakeDataProp = {
     properties:{
         place:string
@@ -24,6 +24,11 @@ export type EarthquakeDataProp = {
     }
 }
 
+// The structure of the input to the Earthquake component
+type EarthquakeProps = {
+    data: EarthquakeDataProp    
+    handleButtonClick: (earthquakeData: EarthquakeDataProp) => void   // Callback function that passes earthquake data to modal when btn is pressed
+}
 
 /**
  * This component represents a single earthquake.
@@ -33,15 +38,18 @@ export type EarthquakeDataProp = {
  * and add comments and save the earthquake (not yet implemented)
  */
 
-export function Earthquake({data}:Readonly<{data : EarthquakeDataProp}>){
+export function Earthquake({data, handleButtonClick}:EarthquakeProps){
     const time = data.properties.time
 
     // Change time to human readable form
     const date = new Date(time)
     const dateTime = format(date, 'yyyy-MM-dd HH:mm:ss zzz')
 
+   
+ 
+
     return(
-        <Card className="w-full space-y-0.5 ">
+        <Card className="w-full space-y-0.5 rounded-none">
             <CardHeader className="-mb-6">
                 <CardTitle className="text-base text-center">{data.properties.place}</CardTitle>
             </CardHeader>
@@ -55,9 +63,8 @@ export function Earthquake({data}:Readonly<{data : EarthquakeDataProp}>){
                 </div>
             </CardContent>
             <CardFooter>
-                <Button className="w-full">Details</Button>
+                <Button className="w-full" onClick={() => handleButtonClick(data)}>Details</Button>
             </CardFooter>
-
         </Card>
     )
 
