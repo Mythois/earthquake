@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 /**
- * The resolvers handle the http requests to the data source and return the result.
- * The returned result must match the structure defined in the typeDefs file.
+ * ABOUT THIS FILE
+ * The resolver handles the http request to the data source and return the result.
+ * The returned result must match the structure defined in the backend/src/models/typeDefs.ts file.
  */
 
 const resolvers = {

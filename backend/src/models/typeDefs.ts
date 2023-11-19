@@ -1,7 +1,8 @@
 import gql from 'graphql-tag'
 
 /**
- * The typeDefs defines the structure that is expected from the data that is returned by the queries.
+ * ABOUT THIS FILE
+ * typeDefs  defines the structure that is expected from the data that is returned by the queries.
  * Here the expected structure is that of a geoJSON file
  */
 
