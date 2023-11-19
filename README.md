@@ -30,7 +30,7 @@ Resizing the application to mobileview will hide / remove the map, so that on sm
 2. Open the repository in your favourite code editor (for example vscode)
 3. In a terminal, in the root folder of the project run npm install
 4. In the same terminal run npm run backend
-5. In a new terminal, again from the root folder of the project, run npm run front.
+5. In a new terminal, again from the root folder of the project, run npm run frontend.
 
 - The backend server should be available at http://localhost:4000/
 - The frontend should run http://localhost:5173/
